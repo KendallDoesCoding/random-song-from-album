@@ -19,7 +19,7 @@ function modeSwitch() {
   updateMode();
 }
 
-// display song links and play song on click
+// display song links and play song on click, but as a joke, the links rendered will all play the same song ;-)
 
 // songs list
 const songs = {
@@ -62,8 +62,7 @@ Object.keys(songs).map((song_title) => {
   link.onclick = () => {
     embed.src = `https://www.youtube.com/embed/dQw4w9WgXcQ?start=${startTime}&autoplay=1&end=${endTime}`;
     console.log(
-      embed.src
-      // "If you don't know this song, we suggest you go to the lyrics page. You can play the song from that page too :)"
+      "If you don't know this song, we suggest you go to the lyrics page. You can play the song from that page too :)"
     );
     if (!userHasClickedASong) {
       userHasClickedASong = true;

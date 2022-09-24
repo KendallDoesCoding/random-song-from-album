@@ -1,8 +1,15 @@
-/* Fonts */
+/* =================================================
+  imported fonts
+==================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100;1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap");
+
+/* =================================================
+  variables
+==================================================== */
 
 :root {
   --bg-color: white;
@@ -43,9 +50,9 @@
   --bg-image: lightgrey;
 }
 
-/* Body */
-
-/* Needs editting, the christmastree images need to be called in a div not in the BODY */
+/* =================================================
+  body
+==================================================== */
 
 body {
   user-select: none;
@@ -72,73 +79,111 @@ body {
   background-size: cover;
 }
 
-/* Headings, etc */
+/* =================================================
+  header
+==================================================== */
+
+#header {
+  position: "relative";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .heading {
   color: var(--font-color-red);
   font-family: "Redressed", cursive;
 }
 
-.ludsocials-heading {
-  color: var(--ludsocials-color-heading);
-  font-family: "Redressed", cursive;
+/* =================================================
+  darkmode/lightmode switch
+==================================================== */
+
+#switch {
+  position: absolute;
+  right: 0;
 }
 
-.lyrics-heading {
-  color: var(--font-color-heading);
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.lud {
-  color: var(--font-color-heading2);
+/* Hide default HTML checkbox */
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.lud2 {
-  color: var(--font-color-sub-heading);
+/* The slider */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-image: url("./images/day.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-/* Icon on top of the website */
-#spotify {
-  color: #1db954;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-#youtube {
-  color: red;
+input:checked + .slider {
+  background-color: #2196f3;
 }
 
-#star {
-  color: yellow;
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
 }
 
-#grey {
-  color: var(--grey);
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
-.christmas_day_message {
+/* Rounded sliders */
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* =================================================
+  embedded video (display none so only audio plays)
+==================================================== */
+
+#embed {
   display: none;
 }
 
-.christmas_day_message p {
-  color: var(--font-color-christmas_message);
-}
-
-.otherprojects {
-  color: var(--font-color-sub-heading);
-  text-decoration: none;
-}
-
-.yml {
-  color: var(--yml-btn);
-  text-decoration: none;
-}
-
-.rate-song {
-  color: var(--rate-song-btn);
-  text-decoration: none;
-}
-
-.lyrics-lud {
-  color: var(--font-color-blue);
-}
+/* =================================================
+  links
+==================================================== */
 
 a,
 a:hover,
@@ -160,6 +205,11 @@ a:active {
 .songs i {
   color: black;
 }
+
+/* =================================================
+  buttons (from other projects)
+==================================================== */
+
 
 button {
   /* This button is for the YML directory NOT the main page */
@@ -275,12 +325,12 @@ button {
   font-family: "Handlee", cursive;
 }
 
+/* =================================================
+  unused classes (from other projects)
+==================================================== */
+
 .lyrics {
   color: var(--lyrics-text-color);
-}
-
-#embed {
-  display: none;
 }
 
 .socials {
@@ -291,85 +341,65 @@ button {
   margin: 10px;
 }
 
-#header {
-  position: "relative";
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.ludsocials-heading {
+  color: var(--ludsocials-color-heading);
+  font-family: "Redressed", cursive;
 }
 
-#switch {
-  position: absolute;
-  right: 0;
+.lyrics-heading {
+  color: var(--font-color-heading);
 }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+.lud {
+  color: var(--font-color-heading2);
 }
 
-/* Hide default HTML checkbox */
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.lud2 {
+  color: var(--font-color-sub-heading);
 }
 
-/* The slider */
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: gray;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  background-image: url("./images/day.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+/* Icon on top of the website */
+#spotify {
+  color: #1db954;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+#youtube {
+  color: red;
 }
 
-input:checked + .slider {
-  background-color: #2196f3;
+#star {
+  color: yellow;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+#grey {
+  color: var(--grey);
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+.christmas_day_message {
+  display: none;
 }
 
-/* Rounded sliders */
-
-.slider.round {
-  border-radius: 34px;
+.christmas_day_message p {
+  color: var(--font-color-christmas_message);
 }
 
-.slider.round:before {
-  border-radius: 50%;
+.otherprojects {
+  color: var(--font-color-sub-heading);
+  text-decoration: none;
+}
+
+.yml {
+  color: var(--yml-btn);
+  text-decoration: none;
+}
+
+.rate-song {
+  color: var(--rate-song-btn);
+  text-decoration: none;
+}
+
+.lyrics-lud {
+  color: var(--font-color-blue);
 }
 
 /* Remove underline for links on buttons, etc
